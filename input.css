@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Saira:ital,wght@0,100..900;1,100..900&family=Valley+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
 
 @import 'tailwindcss';
 
 @theme {
     --font-saira: Saira, sans-serif;
+    --font-cabin: Cabin, sans-serif;
 }
 
 body {
@@ -11,7 +12,7 @@ body {
 }
 
 .side-panel {
-    @apply fixed flex flex-col w-80 h-screen bg-indigo-950 text-white pt-6 gap-10;
+    @apply fixed top-0 hidden xl:flex flex-col xl:w-[20vw] h-screen bg-indigo-950 text-white pt-6 gap-10;
 }
 
 .logo-icon-container {
@@ -39,9 +40,65 @@ body {
 }
 
 header {
-    @apply absolute flex left-80 w-400 h-16 bg-white justify-between;
+    @apply relative flex left-0 xl:left-[20vw] w-screen xl:w-[80vw] h-12 bg-white justify-between border-b border-black/20 items-center px-12;
 }
 
 main {
-    @apply absolute left-80 top-16 w-400 h-fit;
+    @apply relative flex flex-col left-0 xl:left-[20vw] w-screen xl:w-[80vw] h-fit p-8 gap-8;
+}
+
+.main-title {
+    @apply font-cabin font-bold text-xl xl:text-3xl text-slate-900;
+}
+
+.main-page-desc {
+    @apply hidden xl:inline text-slate-600;
+}
+
+.main-button {
+    @apply flex flex-row justify-between;
+}
+
+.add-button {
+    @apply px-4 xl:px-4 bg-indigo-500 rounded-xl font-bold font-cabin;
+}
+
+.table-only-xl {
+    @apply hidden xl:block;
+}
+
+.new-product {
+    @apply absolute z-1 self-center justify-self-center h-fit w-80 p-6 rounded-xl;
+}
+
+.buttons {
+    @apply flex mt-4 w-full justify-center gap-4;
+}
+
+.new-product-form {
+    @apply mt-4;
+}
+
+.new-product-title {
+    @apply font-cabin font-bold text-xl text-slate-900;
+}
+
+.new-product-desc {
+    @apply font-cabin text-slate-600;
+}
+
+.form-label {
+    @apply font-cabin font-bold;
+}
+
+.form-input {
+    @apply text-slate-800
+}
+
+.add {
+    @apply bg-emerald-500 font-saira font-semibold px-3 py-1 rounded-xl;
+}
+
+.cancel {
+    @apply bg-slate-400 font-saira font-semibold px-3 py-1 rounded-xl;
 }
