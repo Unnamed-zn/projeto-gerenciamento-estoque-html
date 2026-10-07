@@ -75,16 +75,12 @@ main {
     @apply flex mt-4 w-full justify-center gap-4;
 }
 
-.new-product-form {
-    @apply mt-4;
-}
-
 .new-product-title {
     @apply font-cabin font-bold text-xl text-slate-900;
 }
 
 .new-product-desc {
-    @apply font-cabin text-slate-600;
+    @apply font-cabin text-slate-600 pb-4;
 }
 
 .form-label {

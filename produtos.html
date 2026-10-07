@@ -29,11 +29,10 @@
                 <h1 class="main-title">Produtos</h1>
                 <p class="main-page-desc">Gerencie todos os produtos do seu estoque por aqui</p>
             </div>
-            <button class="add-button" onclick="newProduct()">Novo <span clas="produto">Produto</span></button>
+            <button class="add-button" onclick="novoProduto()">Novo <span clas="produto">Produto</span></button>
         </div>
         <table class="products-table">
             <tr>
-                <th class="table-only-xl">Código</th>
                 <th>Produto</th>
                 <th class="table-only-xl">Categoria</th>
                 <th>Preço</th>
@@ -48,14 +47,14 @@
             <h1 class="new-product-title">Novo Produto</h1>
             <p class="new-product-desc">Cadastrando novo produto</p>
         </div>
-        <form action="" class="new-product-form">
-            <label class="form-label">Nome</label><br><input type="text" id="nome" class="form-input"><br>
-            <label class="form-label">Categoria</label><br><input type="text" id="categoria" class="form-input"><br>
-            <label class="form-label">Preço</label><br><input type="text" id="preco" class="form-input"><br>
-            <label class="form-label">Estoque</label><br><input type="text" id="estoque" class="form-input"><br>
+        <form action='addProduto()' class="new-product-form">
+            <label class="form-label">Nome</label><br><input type="text" id="nome" class="form-input" required><br>
+            <label class="form-label">Categoria</label><br><input type="text" id="categoria" class="form-input" required><br>
+            <label class="form-label">Preço</label><br><input type="text" id="preco" class="form-input" required><br>
+            <label class="form-label">Estoque</label><br><input type="text" id="estoque" class="form-input" required><br>
             <div class="buttons">
                 <button type="submit" class="add">Adicionar</button>
-                <button type="button" class="cancel">Cancelar</button>
+                <button type="button" onclick="fecharNovoProduto()" class="cancel">Cancelar</button>
             </div>
         </form>
     </dialog>
