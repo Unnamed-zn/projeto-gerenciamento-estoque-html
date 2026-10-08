@@ -31,14 +31,17 @@
             </div>
             <button class="add-button" onclick="novoProduto()">Novo <span clas="produto">Produto</span></button>
         </div>
-        <table class="products-table">
-            <tr>
-                <th>Produto</th>
-                <th class="table-only-xl">Categoria</th>
-                <th>Preço</th>
-                <th>Estoque</th>
-                <th>Ações</th>
-            </tr>
+        <table class="products-table" id="products-table">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th class="table-only-xl">Categoria</th>
+                    <th>Preço</th>
+                    <th>Estoque</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="products-table-body"></tbody>
         </table>
     </main>
 
@@ -47,19 +50,32 @@
             <h1 class="new-product-title">Novo Produto</h1>
             <p class="new-product-desc">Cadastrando novo produto</p>
         </div>
-        <form action='addProduto()' class="new-product-form">
-            <label class="form-label">Nome</label><br><input type="text" id="nome" class="form-input" required><br>
-            <label class="form-label">Categoria</label><br><input type="text" id="categoria" class="form-input" required><br>
-            <label class="form-label">Preço</label><br><input type="text" id="preco" class="form-input" required><br>
-            <label class="form-label">Estoque</label><br><input type="text" id="estoque" class="form-input" required><br>
-            <div class="buttons">
-                <button type="submit" class="add">Adicionar</button>
-                <button type="button" onclick="fecharNovoProduto()" class="cancel">Cancelar</button>
-            </div>
-        </form>
+        <label class="form-label">Nome</label><br><input type="text" id="nome" class="form-input"><br>
+        <label class="form-label">Categoria</label><br><input type="text" id="categoria" class="form-input"><br>
+        <label class="form-label">Preço</label><br><input type="text" id="preco" class="form-input"><br>
+        <label class="form-label">Estoque</label><br><input type="text" id="estoque" class="form-input"><br>
+        <div class="buttons">
+            <button onclick='addProduto()' class="confirm">Adicionar</button>
+            <button onclick='fecharNovoProduto()' class="cancel">Cancelar</button>
+        </div>
     </dialog>
 
-    <script src="script.js" defer></script>
+    <dialog class="edit-product" id="edit-product-dialog">
+        <div class="title-desc">
+            <h1 class="product-title">Atualizar Produto</h1>
+            <p class="product-desc">Atualizando produto já cadastrado</p>
+        </div>
+        <label class="form-label">Nome</label><br><input type="text" id="edit-nome" class="form-input" value=""><br>
+        <label class="form-label">Categoria</label><br><input type="text" id="edit-categoria" class="form-input" value=""><br>
+        <label class="form-label">Preço</label><br><input type="text" id="edit-preco" class="form-input" value=""><br>
+        <label class="form-label">Estoque</label><br><input type="text" id="edit-estoque" class="form-input" value=""><br>
+        <div class="buttons">
+            <button onclick='editar()' id="edit-button" class="confirm">Atualizar</button>
+            <button onclick='fecharEdicao()' class="cancel">Cancelar</button>
+        </div>
+    </dialog>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

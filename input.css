@@ -71,15 +71,19 @@ main {
     @apply absolute z-1 self-center justify-self-center h-fit w-80 p-6 rounded-xl;
 }
 
+.edit-product {
+    @apply absolute z-1 self-center justify-self-center h-fit w-80 p-6 rounded-xl;
+}
+
 .buttons {
     @apply flex mt-4 w-full justify-center gap-4;
 }
 
-.new-product-title {
+.product-title {
     @apply font-cabin font-bold text-xl text-slate-900;
 }
 
-.new-product-desc {
+.product-desc {
     @apply font-cabin text-slate-600 pb-4;
 }
 
@@ -91,10 +95,18 @@ main {
     @apply text-slate-800
 }
 
-.add {
+.confirm {
     @apply bg-emerald-500 font-saira font-semibold px-3 py-1 rounded-xl;
 }
 
 .cancel {
     @apply bg-slate-400 font-saira font-semibold px-3 py-1 rounded-xl;
+}
+
+.edit-delete-button {
+    @apply h-6 w-6;
+}
+
+.table-item {
+    @apply text-center;
 }
