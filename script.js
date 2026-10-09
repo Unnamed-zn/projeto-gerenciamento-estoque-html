@@ -102,7 +102,7 @@ function carregarProdutos() {
         tr.innerHTML = value.innerHTML;
         tr.appendChild(acoes);
 
-        if (index === (produtos.length - 1)) {
+        if (index === (produtos.length)) {
             tr.children[0].className += " rounded-bl-lg";
             tr.children[4].className += " rounded-br-lg";
         }
@@ -151,9 +151,9 @@ function carregarPorNome() {
             tabela.appendChild(tr);
         }
     });
-    if ((tabela.rows.length - 1) === 0) {
+    if (((tabela.rows.length) === 0) && produtos.length>=1) {
         let opsMesssage = document.createElement('td');
-        opsMesssage.textContent = 'Ops, nenhum item correspondente encontrado D:';
+        opsMesssage.textContent = 'Ops, nenhum item encontrado D:';
         let linha = document.createElement('tr');
         linha.appendChild(opsMesssage);
         tabela.appendChild(linha);
