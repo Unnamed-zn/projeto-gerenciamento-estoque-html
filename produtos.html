@@ -9,17 +9,20 @@
 </head>
 
 <body>
+    <button class="panel-button" id="panel-button" onclick="alternarPainel()"></button>
+
     <header>
+        <button class="search-icon-container" onclick="carregarPorNome()"><img class="icon" src="/imgs/lupa.png" alt=""></button>
+        <input class="search" id="search" type="text">
     </header>
 
-    <aside class="side-panel">
+    <aside class="side-panel" id="side-panel">
         <div class="logo-icon-container">
             <img src="/imgs/icon.png" class="icon">
             <h1 class="logo">StockManager</h1>
         </div>
         <nav class="portal">
             <a href="#" class="here">Produtos</a>
-            <a href="estoques.html">Estoque</a>
         </nav>
     </aside>
 
@@ -33,12 +36,12 @@
         </div>
         <table class="products-table" id="products-table">
             <thead>
-                <tr>
-                    <th>Produto</th>
-                    <th class="table-only-xl">Categoria</th>
-                    <th>Preço</th>
-                    <th>Estoque</th>
-                    <th>Ações</th>
+                <tr class="table-header">
+                    <th class="table-head">Produto</th>
+                    <th class="table-only-xl table-head">Categoria</th>
+                    <th class="table-head">Preço</th>
+                    <th class="table-head">Estoque</th>
+                    <th class="table-head">Ações</th>
                 </tr>
             </thead>
             <tbody id="products-table-body"></tbody>

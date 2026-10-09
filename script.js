@@ -1,4 +1,10 @@
 let produtos = [];
+let isPanelOpen = false;
+
+document.getElementById('search');
+search.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') carregarPorNome();
+});
 
 function novoProduto() {
     const dialog = document.getElementById('new-product-dialog');
@@ -42,7 +48,7 @@ function addProduto() {
         nome.textContent = document.getElementById('nome').value;
 
         let categoria = document.createElement('td');
-        categoria.className = "table-item";
+        categoria.className = "table-item table-only-xl";
         categoria.textContent = document.getElementById('categoria').value;
 
         let preco = document.createElement('td');
@@ -62,7 +68,7 @@ function addProduto() {
         produtos.push(produto);
         carregarProdutos();
         const dialog = document.getElementById('new-product-dialog');
-        
+
         fecharNovoProduto();
     }
 }
@@ -96,13 +102,71 @@ function carregarProdutos() {
         tr.innerHTML = value.innerHTML;
         tr.appendChild(acoes);
 
+        if (index === (produtos.length - 1)) {
+            tr.children[0].className += " rounded-bl-lg";
+            tr.children[4].className += " rounded-br-lg";
+        }
+
         tabela.appendChild(tr);
-    })
+    });
+}
+
+function carregarPorNome() {
+    let tabela = document.getElementById('products-table-body');
+    tabela.innerHTML = '';
+
+    let nome = document.getElementById('search').value;
+
+    produtos.forEach((value, index) => {
+        if (value.children[0].textContent.includes(nome.trim())) {
+            let editar = document.createElement('button');
+            editar.onclick = () => editarProduto(index);
+            editar.className = "edit-delete-button";
+            let editImg = document.createElement('img');
+            editImg.src = '/imgs/editar.png';
+            editar.appendChild(editImg);
+
+            let excluir = document.createElement('button');
+            excluir.onclick = () => excluirProduto(index);
+            excluir.className = "edit-delete-button";
+            let excluirImg = document.createElement('img');
+            excluirImg.src = '/imgs/excluir.png';
+            excluir.appendChild(excluirImg);
+
+            let acoes = document.createElement('td');
+            acoes.className = "table-item";
+            acoes.appendChild(editar);
+            acoes.appendChild(excluir);
+
+            let tr = document.createElement('tr');
+
+            tr.innerHTML = value.innerHTML;
+            tr.appendChild(acoes);
+
+            if (index === (produtos.length - 1)) {
+                tr.children[0].className += " rounded-bl-lg";
+                tr.children[4].className += " rounded-br-lg";
+            }
+
+            tabela.appendChild(tr);
+        }
+    });
+    if ((tabela.rows.length - 1) === 0) {
+        let opsMesssage = document.createElement('td');
+        opsMesssage.textContent = 'Ops, nenhum item correspondente encontrado D:';
+        let linha = document.createElement('tr');
+        linha.appendChild(opsMesssage);
+        tabela.appendChild(linha);
+    }
 }
 
 function excluirProduto(index) {
-    produtos.splice(index, 1);
-    carregarProdutos();
+    let confirm = window.confirm("Você deseja realmente excluir este item?");
+
+    if (confirm) {
+        produtos.splice(index, 1);
+        carregarProdutos();
+    }
 }
 
 function editarProduto(index) {
@@ -150,4 +214,18 @@ function editar(index) {
 
         fecharEdicao();
     }
+}
+
+function alternarPainel() {
+    panel = document.getElementById('side-panel');
+    button = document.getElementById('panel-button');
+
+    if (isPanelOpen) {
+        panel.style.left = "-70vw";
+        button.style.left = "-0.6rem";
+    } else {
+        panel.style.left = "0";
+        button.style.left = "calc(70vw - 0.6rem)";
+    }
+    isPanelOpen = !isPanelOpen;
 }

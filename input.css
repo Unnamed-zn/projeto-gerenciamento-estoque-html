@@ -12,11 +12,11 @@ body {
 }
 
 .side-panel {
-    @apply fixed top-0 hidden xl:flex flex-col xl:w-[20vw] h-screen bg-indigo-950 text-white pt-6 gap-10;
+    @apply fixed top-0 left-[-70vw] md:left-0 w-[70vw] z-1 flex flex-col md:w-[20vw] h-screen bg-indigo-950 text-white pt-6 gap-4 md:gap-10 overflow-hidden transition-[left] duration-300 ease-in-out;
 }
 
 .logo-icon-container {
-    @apply flex flex-row h-6 items-center gap-2 mx-8;
+    @apply flex flex-row h-8 md:h-6 justify-center gap-2 md:gap-1 xl:gap-2;
 }
 
 .icon {
@@ -24,7 +24,7 @@ body {
 }
 
 .logo {
-    @apply font-saira font-bold text-xl;
+    @apply font-saira font-bold text-xl md:text-base xl:text-xl;
 }
 
 .portal {
@@ -40,11 +40,11 @@ body {
 }
 
 header {
-    @apply relative flex left-0 xl:left-[20vw] w-screen xl:w-[80vw] h-12 bg-white justify-between border-b border-black/20 items-center px-12;
+    @apply relative flex gap-2 left-0 md:left-[20vw] w-screen md:w-[80vw] h-12 bg-white border-b border-black/20 items-center px-8 py-2;
 }
 
 main {
-    @apply relative flex flex-col left-0 xl:left-[20vw] w-screen xl:w-[80vw] h-fit p-8 gap-8;
+    @apply relative flex flex-col left-0 md:left-[20vw] w-screen md:w-[80vw] h-fit p-8 gap-8;
 }
 
 .main-title {
@@ -60,11 +60,11 @@ main {
 }
 
 .add-button {
-    @apply px-4 xl:px-4 bg-indigo-500 rounded-xl font-bold font-cabin;
+    @apply px-4 xl:px-4 bg-indigo-500 rounded-xl font-bold font-cabin cursor-pointer;
 }
 
 .table-only-xl {
-    @apply hidden xl:block;
+    @apply hidden xl:table-cell;
 }
 
 .new-product {
@@ -96,17 +96,37 @@ main {
 }
 
 .confirm {
-    @apply bg-emerald-500 font-saira font-semibold px-3 py-1 rounded-xl;
+    @apply bg-emerald-500 font-saira font-semibold px-3 py-1 rounded-xl cursor-pointer;
 }
 
 .cancel {
-    @apply bg-slate-400 font-saira font-semibold px-3 py-1 rounded-xl;
+    @apply bg-slate-400 font-saira font-semibold px-3 py-1 rounded-xl cursor-pointer;
 }
 
 .edit-delete-button {
-    @apply h-6 w-6;
+    @apply h-6 w-6 mx-1 cursor-pointer;
+}
+
+.products-table {
+    @apply w-full rounded-lg bg-black/10 border-separate overflow-hidden border border-black/25;
+}
+
+.table-head {
+    @apply w-1/4 xl:w-1/5 py-1;
 }
 
 .table-item {
-    @apply text-center;
+    @apply text-center break-all p-2 bg-white/30;
+}
+
+.search {
+    @apply w-full h-full rounded-full bg-black/10 border border-black/10 px-3;
+}
+
+.search-icon-container {
+    @apply h-full p-2 rounded-full bg-black/10 border border-black/10 cursor-pointer;
+}
+
+.panel-button {
+    @apply fixed md:hidden top-[0.80rem] w-5 h-5 rotate-45 rounded-tr-md left-[-0.6rem] z-1 bg-indigo-950 transition-[left] duration-300 ease-in-out;
 }
