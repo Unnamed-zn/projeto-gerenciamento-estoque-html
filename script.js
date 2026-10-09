@@ -115,10 +115,10 @@ function carregarPorNome() {
     let tabela = document.getElementById('products-table-body');
     tabela.innerHTML = '';
 
-    let nome = document.getElementById('search').value;
+    let nome = document.getElementById('search').value.toLowerCase();
 
     produtos.forEach((value, index) => {
-        if (value.children[0].textContent.includes(nome.trim())) {
+        if (value.children[0].textContent.toLowerCase().includes(nome.trim())) {
             let editar = document.createElement('button');
             editar.onclick = () => editarProduto(index);
             editar.className = "edit-delete-button";
